@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+</head>
+<body>
+    <div class="heading">
+        <header>
+            <h2>WIKIHUB</h2>
+            <ul class="lists">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why">Why Wikihub?</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div>
+                <button><a href ="login.html">Sign In</a></button>
+            </div>
+        </header>
+    </div>
+    <div class="image">
+        <img src="{{ url_for('static', filename='images/welcome img.png') }}" alt="My Image" class="animate__animated animate__slideInRight" style="animation-delay: 0.5s; animation-duration: 1.5s">
+    </div>
+    <div class="content">
+        <div class="animate__animated animate__slideInUp" id="intro" style="animation-delay: 0.25s; animation-duration: 1s">WELCOME</div>
+        <div class="animate__animated animate__slideInUp" id="intro-line" style="animation-delay: 0.25s; animation-duration: 1s">Welcome to WikiHub!<br>
+        Your go-to source for reliable, well-researched information on a wide range of topics. Explore, learn, and contribute to a world of knowledge. 
+    </div>
+    <div id="more-content" class="animate__animated animate__bounceInUp" id="intro" style="animation-delay: 0.5s; animation-duration: 2s">Follow us to stay Updated....<br><br>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-whatsapp"></i>
+        <i class="fa-brands fa-linkedin"></i>
+    </div>
+    </div>
+
+    <div class="container">
+          <div class="box1">
+            <div class="info"><span id="about">About Us</span><br>
+            Welcome to WikiHub, your ultimate source of well-researched and reliable knowledge! We are dedicated to making information accessible to everyone by providing a platform where users can explore, learn, and even contribute. Our goal is to create a community-driven knowledge hub that empowers curiosity and learning.  
+           </div>
+          </div>
+         
+
+          <div class="box2">
+            <div class="info">
+                <span id="services">Services</span>
+                <ul>
+                    <li>Curated Articles – Reliable, well-researched content on various topics.</li>
+                    <li>User Contributions – Share and edit knowledge with our community.</li>
+                    <li>Advanced Search – Find information quickly and efficiently.</li>
+                    <li>Community Discussions – Engage in insightful conversations.</li>
+                    <li>Educational Resources – Access guides and learning materials.</li>
+                </ul>
+                At WikiHub, we make learning simple, accessible, and collaborative! 
+            </div>
+         </div>
+
+
+         <div class="box3">
+            <div class="info"><span id="why">Why Wikihub?</span><br>
+            <ul>
+                <li>Reliable Content – Well-researched and regularly updated.</li>
+                <li>Community-Driven – Contribute, edit, and engage with others.</li>
+                <li>User-Friendly – Easy search and navigation.</li>
+                <li>Diverse Topics – Covering everything from science to history.</li>
+                <li>Always Evolving – Growing with the latest insights.</li>
+            </ul>
+            Join WikiHub and explore a world of knowledge!
+          </div>
+         </div>
+
+         <div class="box4">
+            <div class="info"><span id="contact">Contact</span><br>
+                We’d love to hear from you! Whether you have a question, feedback, or suggestions, feel free to reach out to us. Your insights help us improve and grow our community of knowledge seekers.    
+            <ul>
+                <li>Email: supportwikihub@gmail.com</li>
+                <li>Phone: +1 (234) 567-890</li>
+            </ul>
+            You can also connect with us on our social media channels for the latest updates and discussions. We’re here to help! <br><br>
+            <div class="icons">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-whatsapp"></i>
+                <i class="fa-brands fa-linkedin"></i>
+            </div>
+            
+          </div>
+         </div>
+
+    </div>
+    <footer>
+        <div class="footer">WIKIHUB © 2025 - All Rights Reserved</div>
+    </footer>
+
+
+
+
+
+    <script src="https://kit.fontawesome.com/45a680a5be.js"></script>
+</body>
+</html>

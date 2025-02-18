@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Clone - Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: papayawhip;
+            color: #333;
+        }
+
+        header {
+            background-color: papayawhip;
+            color: black;
+            text-align: center;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            background-color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            margin: 0 15px;
+            color: #2d6cdf;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+            padding: 8px 15px;
+        }
+
+        nav a:hover {
+            background-color: #2d6cdf;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background: paleturquoise;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .search-bar input {
+            width: 60%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 12px 18px;
+            font-size: 16px;
+            background-color: #2d6cdf;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #1e4faa;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            border-bottom: 3px solid #2d6cdf;
+            padding-bottom: 8px;
+            font-size: 22px;
+        }
+
+        .article-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .article-list li {
+            padding: 12px;
+            margin: 8px 0;
+            background: #f8f8f8;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .article-list li:hover {
+            background: #e9f0ff;
+            transform: scale(1.02);
+        }
+
+        .article-list li a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .article-list li a:hover {
+            color: #2d6cdf;
+        }
+
+        .no-results {
+            text-align: center;
+            font-size: 18px;
+            color: red;
+            display: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Wikihub Dashboard
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Categories</a>
+    <a href="#">Recent Edits</a>
+    <a href="#">My Contributions</a>
+    <a href="#">Profile</a>
+</nav>
+
+<div class="container">
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search Articles..." onkeyup="searchWiki()"> 
+        <button onclick="searchWiki()">Search</button>
+    </div>
+
+    <p class="no-results" id="noResults">No articles found.</p>
+
+    <div class="section">
+        <h2>🌟 Featured Articles</h2>
+        <ul class="article-list">
+            <li><a href="#">🚀 The History of Space Exploration</a></li>
+            <li><a href="#">🤖 The Evolution of AI</a></li>
+            <li><a href="#">🌊 The Wonders of the Deep Sea</a></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>✍ Recent Edits</h2>
+        <ul class="article-list">
+            <li><a href="#">📌 User1 edited "Quantum Mechanics"</a></li>
+            <li><a href="#">📌 User2 added a new section in "World War II"</a></li>
+            <li><a href="#">📌 User3 updated references in "Climate Change"</a></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📝 My Contributions</h2>
+        <ul class="article-list">
+            <li><a href="#">🔍 My Edits in "Artificial Intelligence"</a></li>
+            <li><a href="#">📖 My Created Article: "History of Cybersecurity"</a></li>
+            <li><a href="#">🔗 Updated References in "Renewable Energy"</a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    function searchWiki() {
+        let query = document.getElementById("searchInput").value.toLowerCase();
+        let articles = document.querySelectorAll(".article-list li");
+        let noResults = document.getElementById("noResults");
+        let found = false;
+
+        articles.forEach(article => {
+            let text = article.innerText.toLowerCase();
+            if (text.includes(query)) {
+                article.style.display = "block";
+                found = true;
+            } else {
+                article.style.display = "none";
+            }
+        });
+
+        if (found) {
+            noResults.style.display = "none";
+        } else {
+            noResults.style.display = "block";
+        }
+    }
+</script>
+
+</body>
+</html>

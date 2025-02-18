@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://kit.fontawesome.com/45a680a5be.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #d291ff, #e4dee3);
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 400px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        .input-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            outline: none;
+            padding: 8px;
+        }
+        input::placeholder {
+            color: #565555;
+            font-size: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #ff94e3, #d291ff);
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button:hover{
+            font-size:19px ;
+            transition: font-size 0.3s ease;
+        }
+        p {
+            margin-top: 15px;
+            color: #565555;
+        }
+        a {
+            color: #006aff;
+            text-decoration: none;
+        }
+        a:hover{
+            font-size:19px ;
+            transition: font-size 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Login <i class="fa-solid fa-right-to-bracket"></i></h2>
+        <form action="{{url_for('login')}}" method="POST">
+            <div class="input-container">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="input-container">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit">Login</button>
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </form>
+    </div>
+
+</body>
+</html>
+
