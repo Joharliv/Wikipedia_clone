@@ -88,11 +88,10 @@ def user():
     return f"<h1>{username}</h1>"
 
 with app.app_context():
-    db.drop_all()t 
+    db.drop_all()
     db.create_all()
 
 if __name__ == "__main__":
 
-    app.run(debug=True)  # Enable debug mode to see errors
+    app.run(debug=True) 
 
-#hi a new change
