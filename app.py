@@ -26,37 +26,34 @@ class users(db.Model):
 
 @app.route("/")
 def index():
-    
-
-
     return render_template("index.html")
 
 @app.route("/home")
 def home():
     return render_template("home.html")
 
-@app.route("/signup.html",methods=["GET","POST"])
+@app.route("/signup.html", methods=["GET", "POST"])
 def signup():
-    if request.method=="POST":
-        name=request.form.get("name")
-        username=request.form.get("username")
-        mobile=request.form.get("mobile")
-        email=request.form.get("email")
-        password=request.form.get("password")
+    if request.method == "POST":
+        name = request.form.get("name")
+        username = request.form.get("username")
+        mobile = request.form.get("mobile")
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        found = users.query.filter_by(username=username).first()
+        if found:
+            return render_template("signup.html", error="⚠️ Username already exists. Please choose another .")
+
+        # Naya user database me add karna
+        usr = users(name, username, mobile, email, password)
+        db.session.add(usr)
+        db.session.commit()
+
+
         
-        found=users.query.filter_by(username=username).first()
-        if(found):
-            session["username"]=found.username
-            return render_template("login.html")
-        else:
-        
-            usr=users(name,username,mobile,email,password)
-            db.session.add(usr)
-            db.session.commit()
-            return render_template("login.html")
-        
-    else:
-        return render_template("signup.html")
+        return render_template("login.html" , success="✅ Account Created Successfully ")
+    return render_template("signup.html")
 
 
    
@@ -70,13 +67,13 @@ def login():
         password=request.form.get("password")
         found=users.query.filter_by(username=username).first()
         if(not found):
-            return render_template("signup.html")
+            return render_template("signup.html" , error="⚠️ Username not found , Please Signup first.")
 
         if(check_password_hash(found.password_hash,password)):
             #where will user go after verification
             return render_template("home.html")
         else:
-            return render_template("login.html")
+            return render_template("login.html" ,error="❌ Incorrect Password.")
     else:
         return render_template("login.html")
 
@@ -94,4 +91,3 @@ with app.app_context():
 if __name__ == "__main__":
 
     app.run(debug=True) 
-
