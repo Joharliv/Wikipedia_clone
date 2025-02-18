@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Clone - Categories</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: paleturquoise;
+            color: #333;
+        }
+
+        header {
+            background-color: paleturquoise;
+            color: black;
+            text-align: center;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            background-color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            margin: 0 15px;
+            color: #2d6cdf;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+            padding: 8px 15px;
+        }
+
+        nav a:hover {
+            background-color: #2d6cdf;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 30px auto;
+            background: papayawhip;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .category {
+            background: #f8f8f8;
+            padding: 40px;
+            border-radius: 10px;
+            transition: 0.3s;
+            font-size: 22px;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .category:hover {
+            background: #e9f0ff;
+            transform: scale(1.05);
+        }
+
+        .category a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            font-size: 24px;
+        }
+
+        .category a span {
+            font-size: 50px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Wikihub Categories
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="categories.html">Categories</a>
+    <a href="#">Recent Edits</a>
+    <a href="#">My Contributions</a>
+    <a href="profile.html">Profile</a>
+</nav>
+
+<div class="container">
+    <h1>📚 Browse Categories</h1>
+    <div class="categories">
+        <div class="category"><a href="#"><span>🔬</span>Science & Technology</a></div>
+        <div class="category"><a href="#"><span>🏰</span>History</a></div>
+        <div class="category"><a href="#"><span>🎭</span>Arts & Culture</a></div>
+        <div class="category"><a href="#"><span>🌍</span>Geography</a></div>
+        <div class="category"><a href="#"><span>🏥</span>Health & Medicine</a></div>
+        <div class="category"><a href="#"><span>⚽</span>Sports</a></div>
+        <div class="category"><a href="#"><span>🎬</span>Entertainment</a></div>
+        <div class="category"><a href="#"><span>🏛️</span>Politics</a></div>
+    </div>
+</div>
+
+</body>
+</html>

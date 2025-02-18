@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Clone - Profile</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: papayawhip;
+            color: #333;
+        }
+
+        header {
+            background-color: papayawhip;
+            color: black;
+            text-align: center;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            background-color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            margin: 0 15px;
+            color: #2d6cdf;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+            padding: 8px 15px;
+        }
+
+        nav a:hover {
+            background-color: #2d6cdf;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .profile-container {
+            width: 50%;
+            margin: 40px auto;
+            background: paleturquoise;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px; /* Adjust the emoji size */
+            cursor: pointer;
+            margin: 0 auto;
+            background-position: center;
+            background-size: cover; /* Ensures the image covers the entire circle */
+        }
+
+        .profile-info {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        .profile-info input {
+            width: 80%;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .edit-btn {
+            padding: 12px 18px;
+            font-size: 16px;
+            background-color: #2d6cdf;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .edit-btn:hover {
+            background-color: #1e4faa;
+        }
+
+        .remove-btn {
+            padding: 12px 18px;
+            font-size: 16px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .remove-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Wikihub Profile
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="catogeries.html">Categories</a>
+    <a href="#">Recent Edits</a>
+    <a href="#">My Contributions</a>
+    <a href="profile.html">Profile</a>
+</nav>
+
+<div class="profile-container">
+    <label for="avatarUpload">
+        <div class="profile-avatar" id="avatarContainer">
+            😊 <!-- Emoji by default -->
+        </div>
+    </label>
+    <input type="file" id="avatarUpload" accept="image/*" style="display: none;" onchange="changeAvatar(event)">
+    <button class="remove-btn" id="removeBtn" onclick="removeAvatar()">Remove Profile Picture</button> <!-- Remove button -->
+    <div class="profile-info">
+        <p><strong>Name:</strong> <input type="text" id="username" value="John Doe" disabled></p>
+        <p><strong>Email:</strong> <input type="email" id="useremail" value="john@example.com" disabled></p>
+        <button class="edit-btn" onclick="editProfile()">Edit Profile</button>
+    </div>
+</div>
+
+<script>
+    function editProfile() {
+        let nameInput = document.getElementById("username");
+        let emailInput = document.getElementById("useremail");
+        
+        if (nameInput.disabled) {
+            nameInput.disabled = false;
+            emailInput.disabled = false;
+        } else {
+            nameInput.disabled = true;
+            emailInput.disabled = true;
+            alert("Profile updated successfully!");
+        }
+    }
+
+    function changeAvatar(event) {
+        const file = event.target.files[0];
+        const avatarContainer = document.getElementById("avatarContainer");
+        
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                avatarContainer.style.backgroundImage = `url(${e.target.result})`; // Set image as background
+                avatarContainer.textContent = ''; // Clear emoji when image is set
+                document.getElementById("removeBtn").style.display = "inline-block"; // Show "Remove" button
+            }
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function removeAvatar() {
+        const avatarContainer = document.getElementById("avatarContainer");
+        avatarContainer.style.backgroundImage = ''; // Remove image
+        avatarContainer.textContent = '😊'; // Reset emoji
+        document.getElementById("removeBtn").style.display = "none"; // Hide "Remove" button
+    }
+</script>
+
+</body>
+</html>
