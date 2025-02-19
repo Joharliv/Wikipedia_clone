@@ -6,8 +6,8 @@ app = Flask(__name__)
 app.secret_key="1234"
 app.permanent_session_lifetime=timedelta(minutes=15)
 app.config["SQLALCHEMY_DATABASE_URI"]='sqlite:///users.sqlite3'
-
 db=SQLAlchemy(app)
+
 class users(db.Model):
     _id=db.Column("id",db.Integer,primary_key=True)
     name=db.Column("name",db.String(100))
@@ -87,5 +87,4 @@ with app.app_context():
     db.create_all()
 
 if __name__ == "__main__":
-
     app.run(debug=True) 
