@@ -45,13 +45,11 @@ def signup():
         if found:
             return render_template("signup.html", error="⚠️ Username already exists. Please choose another .")
 
-        # Naya user database me add karna
+        # add new user in the database
         usr = users(name, username, mobile, email, password)
         db.session.add(usr)
         db.session.commit()
 
-
-        
         return render_template("login.html" , success="✅ Account Created Successfully ")
     return render_template("signup.html")
 
