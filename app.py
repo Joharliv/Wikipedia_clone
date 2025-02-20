@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash,check_password_hash
 app = Flask(__name__)
 app.secret_key="1234"
-app.permanent_session_lifetime=timedelta(minutes=15)
+app.permanent_session_lifetime=timedelta(days=1)
 app.config["SQLALCHEMY_DATABASE_URI"]='sqlite:///users.sqlite3'
 db=SQLAlchemy(app)
 
@@ -43,14 +43,14 @@ def signup():
 
         found = users.query.filter_by(username=username).first()
         if found:
-            return render_template("signup.html", error="⚠️ Username already exists. Please choose another .")
+            return render_template("signup.html", error="Username already exists. Please choose another .")
 
         # add new user in the database
         usr = users(name, username, mobile, email, password)
         db.session.add(usr)
         db.session.commit()
 
-        return render_template("login.html" , success="✅ Account Created Successfully ")
+        return render_template("login.html" , success="Account Created Successfully ")
     return render_template("signup.html")
 
 
@@ -65,13 +65,13 @@ def login():
         password=request.form.get("password")
         found=users.query.filter_by(username=username).first()
         if(not found):
-            return render_template("signup.html" , error="⚠️ Username not found , Please Signup first.")
+            return render_template("signup.html" , error=" Username not found , Please Signup first.")
 
         if(check_password_hash(found.password_hash,password)):
             #where will user go after verification
             return render_template("home.html")
         else:
-            return render_template("login.html" ,error="❌ Incorrect Password.")
+            return render_template("login.html" ,error=" Incorrect Password.")
     else:
         return render_template("login.html")
 
