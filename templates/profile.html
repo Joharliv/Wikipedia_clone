@@ -125,11 +125,11 @@
 </header>
 
 <nav>
-    <a href="index.html">Home</a>
-    <a href="catogeries.html">Categories</a>
-    <a href="#">Recent Edits</a>
-    <a href="#">My Contributions</a>
-    <a href="profile.html">Profile</a>
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('categories') }}">Categories</a>
+    <a>Recent Edits</a>
+    <a>My Contributions</a>
+    <a href="{{ url_for('profile') }}">Profile</a>
 </nav>
 
 <div class="profile-container">

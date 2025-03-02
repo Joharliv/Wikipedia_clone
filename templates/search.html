@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Wikipedia Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="search-container">
+        <h1>Search Wikipedia</h1>
+        <form method="post">
+            <input type="text" name="query" placeholder="Enter search term" required>
+            <button type="submit" class="btn">Search</button>
+        </form>
+        <a href="/home" class="back-btn">Back to Home</a>
+    </div>
+</body>
+</html>
